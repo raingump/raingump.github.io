@@ -104,5 +104,5 @@ theme: landscape
 deploy:
   type: 'git'
   repo: git@github.com:raingump/raingump.github.io.git
-  branch: master
+  branch: gh-pages
 
