@@ -5,7 +5,7 @@
 # Site
 title: raingump
 subtitle: 'Keep calm and carry on.'
-description: 'iOS'
+description: 'iOS/programming/LifeHack'
 keywords:
 author: raingump
 language: zh-CN
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
