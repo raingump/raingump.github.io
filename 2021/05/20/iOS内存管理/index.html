@@ -20,27 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;raingump.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script>
-<meta name="description" content="2021年，目标是：">
+<meta name="description" content="1. Why 内存管理？你好我好大家好，你的 APP 能在系统获得更好的体验，能够在内存中活得更久，系统的表现更好。其他 APP 的表现更好，尤其当你的 APP 会和其他 APP 有数据上的交互的时候。所以，做好内存管理，减少内存的使用，基本是百利而无一害的。 WWDC  iOS Memory Deep Dive https:&#x2F;&#x2F;developer.apple.com&#x2F;videos&#x2F;play&#x2F;ww">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021 flag">
-<meta property="og:url" content="https://raingump.github.io/2021/05/05/2021-flag/index.html">
+<meta property="og:title" content="iOS内存管理">
+<meta property="og:url" content="https://raingump.github.io/2021/05/20/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="raingump">
-<meta property="og:description" content="2021年，目标是：">
+<meta property="og:description" content="1. Why 内存管理？你好我好大家好，你的 APP 能在系统获得更好的体验，能够在内存中活得更久，系统的表现更好。其他 APP 的表现更好，尤其当你的 APP 会和其他 APP 有数据上的交互的时候。所以，做好内存管理，减少内存的使用，基本是百利而无一害的。 WWDC  iOS Memory Deep Dive https:&#x2F;&#x2F;developer.apple.com&#x2F;videos&#x2F;play&#x2F;ww">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-05T07:23:33.000Z">
-<meta property="article:modified_time" content="2021-05-09T14:55:05.722Z">
+<meta property="article:published_time" content="2021-05-20T13:58:31.000Z">
+<meta property="article:modified_time" content="2021-05-25T15:49:45.619Z">
 <meta property="article:author" content="raingump">
+<meta property="article:tag" content="iOS">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://raingump.github.io/2021/05/05/2021-flag/">
+<link rel="canonical" href="https://raingump.github.io/2021/05/20/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;raingump.github.io&#x2F;2021&#x2F;05&#x2F;05&#x2F;2021-flag&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;05&#x2F;2021-flag&#x2F;&quot;,&quot;title&quot;:&quot;2021 flag&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;raingump.github.io&#x2F;2021&#x2F;05&#x2F;20&#x2F;iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;20&#x2F;iOS内存管理&#x2F;&quot;,&quot;title&quot;:&quot;iOS内存管理&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>2021 flag | raingump</title><script src="/js/config.js"></script>
+<title>iOS内存管理 | raingump</title><script src="/js/config.js"></script>
   
 
 
@@ -106,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -119,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Why-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1. Why 内存管理？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,7 +178,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://raingump.github.io/2021/05/05/2021-flag/">
+    <link itemprop="mainEntityOfPage" href="https://raingump.github.io/2021/05/20/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2021 flag
+          iOS内存管理
         </h1>
 
         <div class="post-meta-container">
@@ -200,14 +202,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-05 15:23:33" itemprop="dateCreated datePublished" datetime="2021-05-05T15:23:33+08:00">2021-05-05</time>
+      <time title="创建时间：2021-05-20 21:58:31" itemprop="dateCreated datePublished" datetime="2021-05-20T21:58:31+08:00">2021-05-20</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-09 22:55:05" itemprop="dateModified" datetime="2021-05-09T22:55:05+08:00">2021-05-09</time>
+        <time title="修改时间：2021-05-25 23:49:45" itemprop="dateModified" datetime="2021-05-25T23:49:45+08:00">2021-05-25</time>
       </span>
 
   
@@ -220,21 +222,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>2021年，目标是：</p>
-<span id="more"></span>
-
-<ol>
-<li>健康<ol>
-<li>体重下降至健康水平（BMI &lt;= 23 ）</li>
-<li>调节睡眠质量</li>
-</ol>
-</li>
-<li>工作<ol>
-<li>寻找新环境</li>
-<li>输出原创博文：2篇/月</li>
-</ol>
-</li>
-</ol>
+        <h1 id="1-Why-内存管理？"><a href="#1-Why-内存管理？" class="headerlink" title="1. Why 内存管理？"></a>1. Why 内存管理？</h1><p>你好我好大家好，你的 APP 能在系统获得更好的体验，能够在内存中活得更久，系统的表现更好。其他 APP 的表现更好，尤其当你的 APP 会和其他 APP 有数据上的交互的时候。所以，做好内存管理，减少内存的使用，基本是百利而无一害的。</p>
+<p>WWDC </p>
+<p>iOS Memory Deep Dive</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2018/416/">https://developer.apple.com/videos/play/wwdc2018/416/</a></p>
+<p>Image and Graphics Best Practices</p>
+<p><a target="_blank" rel="noopener" href="https://developer.apple.com/videos/play/wwdc2018/219/">https://developer.apple.com/videos/play/wwdc2018/219/</a></p>
 
     </div>
 
@@ -252,7 +245,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://raingump.github.io/2021/05/05/2021-flag/" title="2021 flag">https://raingump.github.io/2021/05/05/2021-flag/</a>
+      <a href="https://raingump.github.io/2021/05/20/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" title="iOS内存管理">https://raingump.github.io/2021/05/20/iOS内存管理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -260,16 +253,19 @@
 </ul>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2021/05/05/2021-flag/" rel="prev" title="2021 flag">
+                  <i class="fa fa-chevron-left"></i> 2021 flag
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/20/iOS%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="next" title="iOS内存管理">
-                  iOS内存管理 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
