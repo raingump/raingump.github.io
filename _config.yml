@@ -5,7 +5,7 @@
 # Site
 title: raingump
 subtitle: '但行好事'
-description: 'iOS/programming/LifeHack'
+description: 'e-commerce/ex-Programmer/LifeHack'
 keywords:
 author: raingump
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://raingump.space/
+url: https://raingump.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
